@@ -18,7 +18,9 @@ app.get("/api/skills", async (req, res) => {
   let result = await db.collection("skills").find({});
 
   let response = await result.toArray();
-  console.log(response);
+  let responseInJSON = JSON.stringify(response);
+
+  res.status(200).send(responseInJSON);
 });
 
 // Endpoint to retrieve data
@@ -28,7 +30,9 @@ app.get("/api/projects", async (req, res) => {
   let result = await db.collection("projects").find({});
 
   let response = await result.toArray();
-  console.log(response);
+  let responseInJSON = JSON.stringify(response);
+
+  res.status(200).send(responseInJSON);
 });
 
 // Start server

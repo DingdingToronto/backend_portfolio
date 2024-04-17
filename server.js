@@ -37,6 +37,17 @@ app.get("/api/projects", async (req, res) => {
   res.status(200).send(responseInJSON);
 });
 
+app.get("/api/histories", async (req, res) => {
+  let db = await connection();
+
+  let result = await db.collection("history").find({});
+
+  let response = await result.toArray();
+  let responseInJSON = JSON.stringify(response);
+
+  res.status(200).send(responseInJSON);
+});
+
 // Start server
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);

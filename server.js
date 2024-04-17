@@ -40,7 +40,7 @@ app.get("/api/projects", async (req, res) => {
 app.get("/api/histories", async (req, res) => {
   let db = await connection();
 
-  let result = await db.collection("history").find({});
+  let result = await db.collection("histories").find({});
 
   let response = await result.toArray();
   let responseInJSON = JSON.stringify(response);

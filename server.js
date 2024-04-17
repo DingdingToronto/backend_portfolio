@@ -7,6 +7,8 @@ const PORT = process.env.PORT || 3000;
 const connection = require("./db");
 // Middleware to parse JSON bodies
 app.use(express.json());
+const cors = require("cors");
+app.use(cors());
 
 // Serve the React frontend as static files
 app.use(express.static(path.join(__dirname, "../client")));
